@@ -10,5 +10,6 @@ RFM_CONFIG_PATH environment variables contain the path of the configuration file
 
 hello_test : basic hello world test case
 hello-test_makefile : basic hellow world test case with a Makefile build ( no option )
-
+benchio_build_and_test: builds adios2, benchio and launches a test
 exp1/test.sh : template script to launch a specific test
+

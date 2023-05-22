@@ -16,9 +16,4 @@ echo "INSTALL_DIR=$(pwd)" > source.sh
 echo 'export PATH=${INSTALL_DIR}/bin:${PATH}' >> source.sh
 echo 'export LD_LIBRARY_PATH=${INSTALL_DIR}/lib64:${LD_LIBRARY_PATH}' >> source.sh
 echo 'export LIBRARY_PATH=${INSTALL_DIR}/lib64:${LIBRARY_PATH}' >> source.sh
-cd .. 
-
-git clone https://github.com/davidhenty/benchio
-cd benchio 
-source ../adios2_24/source.sh
-make
+cd ..

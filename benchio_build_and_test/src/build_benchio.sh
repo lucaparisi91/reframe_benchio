@@ -11,4 +11,3 @@ cp Makefile-archer2 Makefile
 
 source ../adios2/source.sh
 make CXX=CC CC=cc FC=ftn
-
