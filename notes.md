@@ -2,4 +2,9 @@
 
 Instructions for installing are found at https://reframe-hpc.readthedocs.io . It can be done trough GitHub .
 
-`--report-file` flag can be used to control where the test report is saved
+`--report-file` flag can be used to control where the test report is saved.
+
+RFM_CONFIG_PATH environment variables contain the path of the configuration files
+
+hello_test : basic hello world test case
+exp1/test.sh : template script to launch a specific test

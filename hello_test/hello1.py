@@ -11,7 +11,7 @@ import reframe.utility.sanity as sn
 class HelloTest(rfm.RegressionTest):
     lang = parameter(['c', 'cpp'])
 
-    valid_systems = ['*']
+    valid_systems = ['archer2:compute']
     valid_prog_environs = ['*']
     sourcepath = 'hello.c'
 
