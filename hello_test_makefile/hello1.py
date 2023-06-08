@@ -6,7 +6,6 @@
 import reframe as rfm
 import reframe.utility.sanity as sn
 
-
 @rfm.simple_test
 class HelloTest(rfm.RegressionTest):
     lang = parameter(['c', 'cpp'])
@@ -16,7 +15,6 @@ class HelloTest(rfm.RegressionTest):
 
     def __init__(self,**kwargs):
         self.executable= "./hello"
-
 
     @sanity_function
     def assert_hello(self):

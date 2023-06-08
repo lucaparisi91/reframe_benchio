@@ -7,6 +7,7 @@ import reframe as rfm
 import reframe.utility.sanity as sn
 import os 
 import re
+import json
 
 # TEST STEUP
 # modify testConditionsobject to change the thresold on interval of memory bandwith for the test to fail ( or pass )
@@ -79,6 +80,7 @@ class benchioTest(rfm.RegressionTest):
     valid_systems = ['archer2:compute']
     valid_prog_environs = ['PrgEnv-cray']
 
+
     def __init__(self,**kwargs):
 
         super().__init__()
@@ -90,6 +92,7 @@ class benchioTest(rfm.RegressionTest):
         
         self.env_vars = {"OMP_NUM_THREADS": str(self.num_cpus_per_task)}
         self.prerun_cmds  = ['source source.sh']
+        self.time_limit = '1h'
 
     @sanity_function
     def assert_benchio(self):
@@ -100,6 +103,12 @@ class benchioTest(rfm.RegressionTest):
             out=f.read()
         timePerfOut=extract_timing( str(out) )
 
+
+        with open("/work/z19/z19/lparisi/reframe/io_res/out.json","w") as f:
+            json.dump(timePerfOut,f)
+        
+        
+        
 
         return check_timing(timePerfOut, testConditions) 
 

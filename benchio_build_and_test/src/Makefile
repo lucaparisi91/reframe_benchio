@@ -3,12 +3,11 @@ SHELL:= bash
 
 all: setup
 
-#benchio_link:
-#	ln -s /work/z19/z19/lparisi/reframe/benchio/benchio .
-#	ln -s /work/z19/z19/lparisi/reframe/benchio/adios2 .
+benchio_link:
+	ln -s /work/z19/z19/lparisi/reframe/benchio/benchio .
+	ln -s /work/z19/z19/lparisi/reframe/benchio/adios2 .
 
-
-setup:	benchio
+setup:	benchio_link
 	$(SHELL) setup.sh
 
 adios2:

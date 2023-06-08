@@ -18,7 +18,7 @@ site_configuration = {
                     'descr': 'Compute nodes',
                     'scheduler': 'slurm',
                     'launcher': 'srun',
-                    'access': ['--hint=nomultithread','--distribution=block:block','--partition=standard','--qos=standard'],
+                    'access': ['--hint=nomultithread','--distribution=block:block','--partition=standard','--qos=standard','--account=z19'],
                     'environs': ['PrgEnv-gnu','PrgEnv-cray','PrgEnv-aocc'],
                     'max_jobs': 16
                 }
@@ -99,6 +99,7 @@ site_configuration = {
                     ),
                     'append': True
                 }
+
             ]
         }
     ],
