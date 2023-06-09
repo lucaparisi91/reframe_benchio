@@ -68,15 +68,10 @@ def check_timing( outputResult, testConditions ):
             result = result and (bandwidth>= min_bandwith) and (bandwidth <= max_bandwidth) 
     return result
 
-
-
-
-
-
 @rfm.simple_test
 class benchioTest(rfm.RegressionTest):
     lang = parameter(['cpp'])
-
+    
     valid_systems = ['archer2:compute']
     valid_prog_environs = ['PrgEnv-cray']
 
