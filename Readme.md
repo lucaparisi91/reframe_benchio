@@ -15,11 +15,14 @@ This repository contains the tests:
 - benchio_build_and_test: builds adios2, benchio and launches a test
 - exp1/test.sh : template script to launch a specific test
 
-Configuration in `configuration` folder ( currently archer2 configuration for the TDS )
+Configuration in `configuration` folder ( currently archer2 configuration for the tds )
+
+# Running the test trough epcc-Reframe
+
 You can launch the test using
 
 ```bash 
 module load reframe
 module load epcc-reframe
- epcc-reframe -c ../benchio_build_and_test/benchio.py -n  benchio    -r -J "account=z19"
- ```
+epcc-reframe -c ../tests -R -n  benchio -r -J "account=z19"
+```
