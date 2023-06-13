@@ -16,3 +16,10 @@ This repository contains the tests:
 - exp1/test.sh : template script to launch a specific test
 
 Configuration in `configuration` folder ( currently archer2 configuration for the TDS )
+You can launch the test using
+
+```bash 
+module load reframe
+module load epcc-reframe
+ epcc-reframe -c ../benchio_build_and_test/benchio.py -n  benchio    -r -J "account=z19"
+ ```
