@@ -1,9 +1,12 @@
 #!/bin/sh
+set -e
+staged_dir=$(pwd)
+mkdir -p ${WRITE_DIR}
+cd ${WRITE_DIR}
 
-# creates a directory to use as test results
-mkdir striped
-mkdir unstriped
-mkdir fullstriped
+mkdir -p  striped
+mkdir -p unstriped
+mkdir -p fullstriped
 
 lfs setstripe -c 1 unstriped
 lfs setstripe -c -1 fullstriped
