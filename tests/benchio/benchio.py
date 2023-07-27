@@ -30,7 +30,7 @@ class benchio(rfm.RegressionTest):
         '/mnt/lustre/a2fs-work1/work/z19/z19/shared/benchio',
         '/mnt/lustre/a2fs-work2/work/z19/z19/shared/benchio',
         '/mnt/lustre/a2fs-work3/work/z19/z19/shared/benchio',
-        '/mnt/lustre/a2fs-work4/work/z19/z19/shared/benchio'
+        '/mnt/lustre/a2fs-nvme/z19/benchio'
         ]
     )
 
@@ -39,7 +39,7 @@ class benchio(rfm.RegressionTest):
         if self.num_nodes == 1:
             self.reference = {
                 'archer2:compute': {
-                'fullstriped_hdf5': ( 1.2, -0.3, 0.3 ,'GB/s'),
+                'fullstriped_hdf5': ( 1.2, -0.4, 0.4 ,'GB/s'),
                 'unstriped_hdf5': ( 0.5, -0.3, 0.3 ,'GB/s'),
                 'fullstriped_mpiio': ( 1.2, -0.4, 0.4 ,'GB/s'),
                 'unstriped_mpiio': ( 0.6, -0.3, 0.3 ,'GB/s')
@@ -49,10 +49,10 @@ class benchio(rfm.RegressionTest):
             if self.num_nodes==2:
                 self.reference = {
                 'archer2:compute': {
-                'fullstriped_hdf5': ( 2.4, -0.3, 0.3 ,'GB/s'),
-                'unstriped_hdf5': ( 0.5, -0.3, 0.3 ,'GB/s'),
-                'fullstriped_mpiio': ( 2.0, -0.3, 0.3 ,'GB/s'),
-                'unstriped_mpiio': ( 0.5, -0.4, 0.4 ,'GB/s')
+                'fullstriped_hdf5': ( 2.4, -0.4, 0.4 ,'GB/s'),
+                'unstriped_hdf5': ( 0.5, -0.5, 0.5 ,'GB/s'),
+                'fullstriped_mpiio': ( 2.0, -0.4, 0.4 ,'GB/s'),
+                'unstriped_mpiio': ( 0.5, -0.5, 0.5 ,'GB/s')
                     }
                     }
             else:
@@ -73,9 +73,8 @@ class benchio(rfm.RegressionTest):
         self.time_limit = '9m'
         self.build_system = 'CMake'
         self.build_system.ftn="ftn"
-        self.modules = [ "cray-hdf5-parallel" ]
+        self.modules = [ "craype-network-ucx", "cray-mpich-ucx"  ,"cray-hdf5-parallel" ]
         
-
         self.perf_patterns = {
             'fullstriped_hdf5': sn.extractsingle(r'Writing to fullstriped/hdf5\.dat\W*\n\W*time\W*=\W*\d+.\d*\W*,\W*rate\W*=\W*(\d+.\d*)',
                                      self.stdout, 1, float),

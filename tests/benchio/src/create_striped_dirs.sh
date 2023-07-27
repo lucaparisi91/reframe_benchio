@@ -1,10 +1,11 @@
 #!/bin/sh
 set -e
+
 staged_dir=$(pwd)
 mkdir -p ${WRITE_DIR}
 cd ${WRITE_DIR}
 
-mkdir -p  striped
+mkdir -p striped
 mkdir -p unstriped
 mkdir -p fullstriped
 
